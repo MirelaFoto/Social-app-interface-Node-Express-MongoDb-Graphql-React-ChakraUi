@@ -3,10 +3,10 @@
 
 #start the project
 
-cd Server
-npm i
-npm run dev
+#cd Server
+#npm i
+#npm run dev
 
-cd Client
-npm i
-npm start
+#cd Client
+#npm i
+#npm start
