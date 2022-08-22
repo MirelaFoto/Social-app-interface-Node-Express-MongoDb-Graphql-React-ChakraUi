@@ -1,19 +1,20 @@
 const {buildSchema} = require('graphql')
 
-const movieSchema = buildSchema(`
+const userSchema = buildSchema(`
 type Query{
-    movies:[Movie],
-    movieByName(name:String!):Movie
+   users:[User],
+    userByName(name:String!):User
 }
 type Mutation{
-    addMovie(name:String!,genre:String!,year:String!):Movie
+    addUser(name:String!,email:String!,phone:String!):User
 }
-type Movie{
+type User{
     name:String,
-    genre:String,
-    year:String
+    email:String,
+    phone:String
 }
 
 `)
 
-module.exports = movieSchema
+module.exports = userSchema
+

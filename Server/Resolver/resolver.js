@@ -1,20 +1,20 @@
-const Movie = require('../models/model')
+const User = require('../models/model')
 
 const resolvers = {
-    movies:()=>{
-        return Movie.find({})
+   users:()=>{
+        return User.find({})
     },
-    movieByName:(args)=>{
-        return Movie.findOne({name:args.name})
+    userByName:(args)=>{
+        return User.findOne({name:args.name})
     },
-    addMovie:(args)=>{
-      let movie = new Movie({
+    addUser:(args)=>{
+      let user = new User({
         name:args.name,
-        genre:args.genre,
-        year:args.year
+        email:args.email,
+        phone:args.phone
       }) 
-      movie.save()
-      return movie
+      user.save()
+      return user
     }
 }
 

@@ -2,9 +2,10 @@ const express = require('express')
 const app = express();
 const mongoose= require('mongoose')
 const graphqlHttp = require('express-graphql')
-const movieSchema = require('./schema/schema')
-const resolvers = require('./resolver/resolver')
+const userSchema = require('./Schema/schema')
+const resolvers = require('./Resolver/resolver')
 const cors = require('cors')
+
 // database
 mongoose.connect('mongodb+srv://mirela1:DbkeRyLKqabZ6M7@cluster0.xx5ig.mongodb.net/movie-app?retryWrites=true&w=majority', {
     useNewUrlParser:true,
@@ -17,7 +18,7 @@ mongoose.connect('mongodb+srv://mirela1:DbkeRyLKqabZ6M7@cluster0.xx5ig.mongodb.n
 app.use(cors())
 
 app.use('/graphql', graphqlHttp.graphqlHTTP({
-    schema: movieSchema,
+    schema:userSchema,
     graphiql:true,
     rootValue:resolvers
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
-import App from './App';
+import Home from './Pages/Home'
+import App from './App'
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import {
@@ -9,7 +10,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import AddMovie from './components/AddMovie';
+
+import { ChakraProvider } from '@chakra-ui/react'
+import AddUsers from './components/AddUsers';
+
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
@@ -23,13 +27,16 @@ root.render(
    
      
   <React.StrictMode>
+    <ChakraProvider>
     <ApolloProvider client={client}>
+      <App />
     <Routes>
-    <Route path="/" element={<App />} /> 
-    <Route path="new" element={<AddMovie/>} />
+    <Route path="/" element={<Home />} /> 
+    <Route path="new" element={<AddUsers/>} />
     
     </Routes>
     </ApolloProvider>
+    </ChakraProvider>
   </React.StrictMode> 
   </BrowserRouter>
 );
