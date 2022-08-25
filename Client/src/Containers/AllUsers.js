@@ -5,26 +5,37 @@ import Users from '../components/Users';
 import { Flex ,Button, Heading, Container} from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
-const allUsers = gql`
+export var allUsers = gql`
 
   query allUsers {  
-    users{     
-      name
-      email
-      phone
-    }
+    users{
+      id
+        name
+       email
+        phone
+      }
 
 
   }
 
 `;
-function AllUsers() {
 
+
+function AllUsers() {
+  const [current, setCurrent] = useState(1);
+
+  
 //////
 
-const [current, setCurrent] = useState(1);
+
 const pageSize = 10;
 const offset = (current - 1) * pageSize;
+const { loading, error, data } = useQuery(allUsers)
+
+  if (loading) return <p>Loading...</p>;
+
+  if (error) return <p>Error :</p>;
+  const posts = data.users.slice(offset, offset + pageSize);
 
 
 const Prev = forwardRef((props, ref) => (
@@ -49,12 +60,7 @@ const itemRender = (_, type) => {
   ///////
   
 
-  const { loading, error, data } = useQuery(allUsers)
-
-  if (loading) return <p>Loading...</p>;
-
-  if (error) return <p>Error :</p>;
-  const posts = data.users.slice(offset, offset + pageSize);
+ 
   return (
 
     <Container maxW='90%' >
@@ -62,8 +68,9 @@ const itemRender = (_, type) => {
     <Flex flexDir="row" flexWrap="wrap" gap={8}>
      
     {posts.map((user,i)=> {
-      return <div>
-  <Users key={i}
+      return <div  key={i}>
+  <Users
+   id={user.id}
   name={user.name}
   email={user.email}
  phone={user.phone}

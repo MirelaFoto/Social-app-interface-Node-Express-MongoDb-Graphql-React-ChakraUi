@@ -93,14 +93,14 @@ const itemRender = (_, type) => {
     <Link to='/new'> <Button h='100px' w='100px' rounded='full' bg='teal' mt='3em'><AddIcon></AddIcon></Button></Link> 
      
     {posts.map((user,i)=> {
-      return <div>
+      return (
   <SmallCard 
   key={i}
   name={user.name}
   
-  ></SmallCard>
+  ></SmallCard>)
   
-  </div>
+  
 })
 
     }

@@ -9,6 +9,7 @@ const resolvers = {
     },
     addUser:(args)=>{
       let user = new User({
+        id:args.id,
         name:args.name,
         email:args.email,
         phone:args.phone

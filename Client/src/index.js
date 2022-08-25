@@ -12,7 +12,9 @@ import {
 } from "react-router-dom";
 
 import { ChakraProvider } from '@chakra-ui/react'
-import AddUsers from './components/AddUsers';
+import AddUsers from './Pages/AddUsers';
+import ArchivedListItems from './Pages/Archived';
+import { UserContextProvider } from './Store/store';
 
 
 const client = new ApolloClient({
@@ -29,12 +31,14 @@ root.render(
   <React.StrictMode>
     <ChakraProvider>
     <ApolloProvider client={client}>
+    <UserContextProvider>
       <App />
     <Routes>
     <Route path="/" element={<Home />} /> 
     <Route path="new" element={<AddUsers/>} />
-    
+    <Route path="fave" element={< ArchivedListItems />} />
     </Routes>
+    </UserContextProvider>
     </ApolloProvider>
     </ChakraProvider>
   </React.StrictMode> 

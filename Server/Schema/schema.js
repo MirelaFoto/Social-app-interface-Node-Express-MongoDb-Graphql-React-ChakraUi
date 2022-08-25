@@ -6,9 +6,10 @@ type Query{
     userByName(name:String!):User
 }
 type Mutation{
-    addUser(name:String!,email:String!,phone:String!):User
+    addUser(id:ID!,name:String!,email:String!,phone:String!):User
 }
 type User{
+    id:ID,
     name:String,
     email:String,
     phone:String
