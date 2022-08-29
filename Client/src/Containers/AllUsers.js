@@ -21,7 +21,7 @@ export var allUsers = gql`
 `;
 
 
-function AllUsers() {
+function AllUsers ({props}) {
   const [current, setCurrent] = useState(1);
 
   
@@ -67,7 +67,9 @@ const itemRender = (_, type) => {
     <Heading>All users</Heading>
     <Flex flexDir="row" flexWrap="wrap" gap={8}>
      
-    {posts.map((user,i)=> {
+    {posts
+    .filter((item) => item.name.toLowerCase().includes(props.toLowerCase()))
+    .map((user,i)=> {
       return <div  key={i}>
   <Users
    id={user.id}

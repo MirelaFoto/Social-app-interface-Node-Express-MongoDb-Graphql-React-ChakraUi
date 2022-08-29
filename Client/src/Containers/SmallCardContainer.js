@@ -19,7 +19,7 @@ const allUsers = gql`
 `;
 
 
-function SmallCardContainer() {
+function SmallCardContainer({props}) {
 
 //////
 
@@ -92,7 +92,9 @@ const itemRender = (_, type) => {
     <Flex mt='2em'flexDir="row" flexWrap="no-wrap" gap={8}>
     <Link to='/new'> <Button h='100px' w='100px' rounded='full' bg='teal' mt='3em'><AddIcon></AddIcon></Button></Link> 
      
-    {posts.map((user,i)=> {
+    {posts
+    .filter((item) => item.name.toLowerCase().includes(props.toLowerCase()))
+      .map((user,i)=> {
       return (
   <SmallCard 
   key={i}

@@ -11,9 +11,11 @@ const ArchivedListItems = () => {
     // console.log(dispatch)
     const {favoritesList} = state;
     console.log(favoritesList)
+   
 
     return (
-        <div  ><Heading>Archived List</Heading>
+       
+        <  ><Heading ml={12}>Archived List</Heading>
 
             {favoritesList.map((item)=> (
                <Flex key={item.id}>
@@ -28,8 +30,8 @@ const ArchivedListItems = () => {
                         <Button onClick={() => dispatch({type:'DELETE_FAV', payload: item.id})}>Remove</Button>
                 </Flex>
             ))}
-        </div>
-    )
-};
+        </>
+    )}
+;
 
 export default  ArchivedListItems;

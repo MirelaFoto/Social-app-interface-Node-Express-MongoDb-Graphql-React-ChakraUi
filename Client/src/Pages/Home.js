@@ -1,18 +1,17 @@
 import React from 'react'
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import AllUsers from '../Containers/AllUsers'
-import SmallCardContainer from '../Containers/SmallCardContainer'
+
+
 
 
 
 export default function Home() {
   return (
     <React.Fragment >
-<SmallCardContainer />
-    <AllUsers/>
-    <Footer />
-    
+    <Header/>
+<Footer />
     </React.Fragment>
   )
 }

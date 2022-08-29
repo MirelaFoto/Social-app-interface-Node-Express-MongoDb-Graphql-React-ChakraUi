@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
-import Home from './Pages/Home'
+
 import App from './App'
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
@@ -15,6 +15,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import AddUsers from './Pages/AddUsers';
 import ArchivedListItems from './Pages/Archived';
 import { UserContextProvider } from './Store/store';
+import Home from './Pages/Home';
 
 
 const client = new ApolloClient({
