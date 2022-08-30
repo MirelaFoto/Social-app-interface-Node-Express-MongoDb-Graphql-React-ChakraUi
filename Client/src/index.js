@@ -11,7 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { ChakraProvider } from '@chakra-ui/react'
+import { Center, ChakraProvider } from '@chakra-ui/react'
 import AddUsers from './Pages/AddUsers';
 import ArchivedListItems from './Pages/Archived';
 import { UserContextProvider } from './Store/store';
@@ -38,6 +38,14 @@ root.render(
     <Route path="/" element={<Home />} /> 
     <Route path="new" element={<AddUsers/>} />
     <Route path="fave" element={< ArchivedListItems />} />
+    <Route
+      path="*"
+      element={
+        
+          <Center fontSize="4xl" color='red.400'>There's nothing here!</Center>
+        
+      }
+    />
     </Routes>
     </UserContextProvider>
     </ApolloProvider>
